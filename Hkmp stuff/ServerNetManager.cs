@@ -24,14 +24,15 @@ namespace PlayerTrail {
             );
         }
 
-        public void SendTrail(IReadOnlyCollection<IServerPlayer> players, string scene, UnityEngine.Vector3 position) {
+        public void SendTrail(IReadOnlyCollection<IServerPlayer> players, string scene, float positionX, float positionY) {
             foreach(var player in players) {
                 try {
                     _netSender.SendSingleData(
                         ClientPacketId.TrailSeed,
                         new TrailPacket {
                             scene = scene,
-                            position = position
+                            positionX = positionX,
+                            positionY = positionY
                         },
                         player.Id);
                 }

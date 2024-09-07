@@ -1,6 +1,5 @@
 ﻿using Modding;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -12,7 +11,7 @@ using Hkmp.Api.Server;
 namespace PlayerTrail {
     public class PlayerTrail: Mod, ICustomMenuMod, IGlobalSettings<GlobalSettings> {
         new public string GetName() => "PlayerTrail";
-        public override string GetVersion() => "1.0.0.0";
+        public override string GetVersion() => "1.0.0.1";
         public static PlayerTrail instance;
 
         public static GameObject lightseedPrefab;
@@ -87,10 +86,10 @@ namespace PlayerTrail {
                 if(!hasPlacedHere || getDistance() > gs.trailDistance) {
                     Vector3 position = HeroController.instance.transform.position;
                     if(_clientApi.NetClient.IsConnected) {
-                        _netManager.SendTrail(GameManager.instance.sceneName, position);
+                        _netManager.SendTrail(GameManager.instance.sceneName, position.x, position.y);
                     }
                     else {
-                        createNewTrailSeed(GameManager.instance.sceneName, position);
+                        createNewTrailSeed(GameManager.instance.sceneName, position.x, position.y);
                     }
                     lastLocation = position;
                     hasPlacedHere = true;
@@ -98,9 +97,9 @@ namespace PlayerTrail {
             }
         }
 
-        public void createNewTrailSeed(string scene, Vector3 position) {
+        public void createNewTrailSeed(string scene, float positionX, float positionY) {
             if(gs.canSeeTrail) {
-                delayedTrail.Enqueue((Time.time, scene, position));
+                delayedTrail.Enqueue((Time.time, scene, new Vector3(positionX, positionY, 0.0067f)));
                 if(!isDelayThreadRunning) {
                     delayTrailSeeds();
                 }

@@ -6,17 +6,19 @@ namespace PlayerTrail {
         public bool DropReliableDataIfNewerExists => false;
 
         public string scene { get; set; }
-        public UnityEngine.Vector3 position { get; set; }
+        public float positionX { get; set; }
+        public float positionY { get; set; }
 
         public void WriteData(IPacket packet) {
             packet.Write(scene);
-            packet.Write(position.x);
-            packet.Write(position.y);
+            packet.Write(positionX);
+            packet.Write(positionY);
         }
 
         public void ReadData(IPacket packet) {
             scene = packet.ReadString();
-            position = new UnityEngine.Vector3(packet.ReadFloat(), packet.ReadFloat(), 0.0067f);
+            positionX = packet.ReadFloat();
+            positionY = packet.ReadFloat();
         }
     }
 

@@ -4,7 +4,7 @@ namespace PlayerTrail {
     public class TrailClientAddon: TogglableClientAddon {
         public override bool NeedsNetwork => true;
         protected override string Name => "PlayerTrailAddon";
-        protected override string Version => "1.0.0.0";
+        protected override string Version => "1.0.0.1";
 
         private ClientTrailManager _trailManager;
 

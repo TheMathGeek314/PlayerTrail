@@ -29,7 +29,7 @@ namespace PlayerTrail {
         }
 
         private void OnTrail(TrailPacket packet) {
-            PlayerTrail.instance.createNewTrailSeed(packet.scene, packet.position);
+            PlayerTrail.instance.createNewTrailSeed(packet.scene, packet.positionX, packet.positionY);
         }
 
         private void OnClean(CleanPacket packet) {

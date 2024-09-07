@@ -23,12 +23,13 @@ namespace PlayerTrail {
             );
         }
 
-        public void SendTrail(string scene, UnityEngine.Vector3 position) {
+        public void SendTrail(string scene, float positionX, float positionY) {
             _netSender.SendSingleData(
                 ServerPacketId.TrailSeed,
                 new TrailPacket {
                     scene = scene,
-                    position = position
+                    positionX = positionX,
+                    positionY = positionY
                 }
             );
         }
