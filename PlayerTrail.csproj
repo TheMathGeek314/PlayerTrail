@@ -64,9 +64,6 @@
     <Reference Include="HKMP">
       <HintPath>..\_dependencies\HKMP.dll</HintPath>
     </Reference>
-    <Reference Include="HkmpPouch">
-      <HintPath>..\_dependencies\HkmpPouch.dll</HintPath>
-    </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp">
       <HintPath>$(HollowKnightRefs)/MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>

@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-using Hkmp.Api.Server;
+﻿using Hkmp.Api.Server;
 
 namespace PlayerTrail {
     public class ServerTrailManager {

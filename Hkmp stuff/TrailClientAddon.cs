@@ -13,11 +13,11 @@ namespace PlayerTrail {
             _trailManager.Initialize();
         }
 
-        protected override void OnDisable() {
+        protected override void OnEnable() {
             _trailManager.Enable();
         }
 
-        protected override void OnEnable() {
+        protected override void OnDisable() {
             _trailManager.Disable();
         }
     }
