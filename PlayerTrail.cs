@@ -11,7 +11,7 @@ using Hkmp.Api.Server;
 namespace PlayerTrail {
     public class PlayerTrail: Mod, ICustomMenuMod, IGlobalSettings<GlobalSettings> {
         new public string GetName() => "PlayerTrail";
-        public override string GetVersion() => "1.0.0.1";
+        public override string GetVersion() => "1.0.0.2";
         public static PlayerTrail instance;
 
         public static GameObject lightseedPrefab;
