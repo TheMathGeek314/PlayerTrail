@@ -11,7 +11,7 @@ using Hkmp.Api.Server;
 namespace PlayerTrail {
     public class PlayerTrail: Mod, ICustomMenuMod, IGlobalSettings<GlobalSettings> {
         new public string GetName() => "PlayerTrail";
-        public override string GetVersion() => "1.0.0.2";
+        public override string GetVersion() => "1.0.0.3";
         public static PlayerTrail instance;
 
         public static GameObject lightseedPrefab;
@@ -22,7 +22,7 @@ namespace PlayerTrail {
         public static bool isDelayThreadRunning = false;
 
         private Menu MenuRef;
-        public static GlobalSettings gs = new GlobalSettings();
+        public static GlobalSettings gs = new();
 
         public static ClientNetManager _netManager;
         public static IClientApi _clientApi;
